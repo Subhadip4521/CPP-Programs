@@ -4,24 +4,29 @@ using namespace std;
 
 void rev(string s)
 {
-    int flag=0;
-    string temp = s;
-    int len = s.length();
-    
-        for (int i = 0; i < len/2; i++)
-        {
-            if(s[i]==s[len]){
-                
-            }
-        }
+    int flag;
+    int left = 0;
+    int right = s.length() - 1;
 
-    if (flag == 1)
+    while (left < right)
     {
-        cout << "palindrome";
+        char leftChar = s[left];
+        char rightChar = s[right];
+        if(leftChar!=rightChar){
+            flag = 0;
+            break;
+        }
+        else{
+            flag = 1;
+        }
+        left++;
+        right--;
     }
-    else
-    {
-        cout << "Not palindrome";
+    if(flag==0){
+        cout << "Not a palindrome";
+    }
+    else{
+        cout << "Plaindrome";
     }
 }
 
