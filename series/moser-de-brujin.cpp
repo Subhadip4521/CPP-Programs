@@ -1,23 +1,37 @@
-// 0 1 4 5 16 17 20 21 64 65 68 69 80 81 84
+// 0 1 4 5 16 17 20 21 64 65 68 69 80 81
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-void mdb(int num){
-    int n1=0, n2 = 1, n3, n4;
-    cout<<n1<<" "<<n2<<" ";
-    num = num - 4;
-    while(num--){
-        n3 = 4 * n2;
-        n4 = 4 * n2 + 1;
-        cout<<n3<<" "<<n4<<" ";
-        n2 = n3;
-        n3 = n4;
+int mdb(int num)
+{
+    if (num == 0)
+    {
+        return 0;
+    }
+    else if (num == 1)
+    {
+        return 1;
+    }
+    else if (num % 2 == 0)
+    {
+        return 4 * mdb(num / 2);
+    }
+    else if (num % 2 == 1)
+    {
+        return 4 * mdb(num / 2) + 1;
+    }
+}
+void oddeve(int num)
+{
+    for (int i = 0; i < num; i++)
+    {
+        cout << mdb(i) << " ";
     }
 }
 int main()
 {
     int num;
     cin >> num;
-    mdb(num);
+    oddeve(num);
     return 0;
 }
